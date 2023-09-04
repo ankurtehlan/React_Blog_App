@@ -6,7 +6,7 @@ import Write from "./Pages/Write/Write";
 import Setting from "./Pages/Setting/Setting";
 import Login from "./Pages/Login/Login";
 import Register from "./Pages/Register/Register";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 
 const App = () => {
   const user = false;
@@ -15,15 +15,26 @@ const App = () => {
       <NavBar />
       <Routes>
         <Route exact path="/" element={<Header />}></Route>
-
         <Route
           exact
           path="/register"
-          element={user ? <Home /> : <Register />}
+          element={user ? <Header /> : <Register />}
         ></Route>
-        <Route exact path="/login" element={<Login />}></Route>
-        <Route exact path="/write" element={<Write />}></Route>
-        <Route exact path="/settings" element={<Setting />}></Route>
+        <Route
+          exact
+          path="/login"
+          element={user ? <Header /> : <Login />}
+        ></Route>
+        <Route
+          exact
+          path="/write"
+          element={user ? <Write /> : <Register />}
+        ></Route>
+        <Route
+          exact
+          path="/settings"
+          element={user ? <Setting /> : <Register />}
+        ></Route>
         <Route path="/post/:postId" element={<Single />}></Route>
       </Routes>
     </>

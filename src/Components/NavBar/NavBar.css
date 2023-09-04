@@ -34,13 +34,14 @@
 
 .NavSearchIcon {
   font-size: 25px;
-  color: #666;
+  color: #444;
   cursor: pointer;
-  margin-left: 15px;
 }
 
 .NavCenter {
   flex: 6;
+  align-items: center;
+  justify-content: center;
 }
 
 .NavIcons {

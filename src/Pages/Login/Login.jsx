@@ -1,5 +1,5 @@
 import "./Login.css";
-
+import { Link } from "react-router-dom";
 const Login = () => {
   return (
     <div className="login">
@@ -19,7 +19,11 @@ const Login = () => {
         />
         <button className="loginButton">Login</button>
       </form>
-      <button className="loginRegisterButton">Register</button>
+      <button className="loginRegisterButton">
+        <Link className="link" to="/register">
+          Register
+        </Link>
+      </button>
     </div>
   );
 };

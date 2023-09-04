@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import { BiSearch } from "react-icons/bi";
 
 const NavBar = () => {
+  const user = false;
   return (
     <div className="top">
       <div className="NavLeft">
@@ -26,7 +27,7 @@ const NavBar = () => {
             </Link>
           </li>
           <li>
-            <Link className="link" to="/about">
+            <Link className="link" to="/">
               ABOUT US
             </Link>
           </li>
@@ -40,13 +41,31 @@ const NavBar = () => {
               WRITE
             </Link>
           </li>
-
-          <li>LOGOUT </li>
+          <li>
+            <Link className="link" to="/">
+              {user && "LOGOUT"}
+            </Link>
+          </li>
         </ul>
       </div>
       <div className="NavRight">
-        <FaUserCircle className="NavImg" />
-        <BiSearch className="NavSearchIcon" />
+        {user ? (
+          <FaUserCircle className="NavImg" />
+        ) : (
+          <ul className="NavCenter">
+            <li>
+              <Link className="link" to="/login">
+                LOGIN
+              </Link>
+            </li>
+            <li>
+              <Link className="link" to="/register">
+                REGISTER
+              </Link>
+            </li>
+            <BiSearch className="NavSearchIcon" />
+          </ul>
+        )}
       </div>
     </div>
   );
